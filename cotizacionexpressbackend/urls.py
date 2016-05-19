@@ -14,9 +14,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from cotizacionexpressbackend import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include('api.urls',
         namespace="uapis")),
+    url(r'^$', views.pantalla_inicial,
+        name='pantalla_inicial'),
 ]

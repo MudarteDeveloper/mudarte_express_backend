@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from cliente.models import Cliente
 from mueble.models import Mueble
 from contenedor.models import Contenedor
+from bulto.models import Bulto
 from cotizacionexpress.models import Cotizacion, CotizacionMueble, \
     CotizacionContenedor
 
@@ -44,7 +45,13 @@ class ContenedorDescripcionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contenedor
         fields = ('contenedor',)
-        allow = 'Get'
+
+
+class BultoSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Bulto
+        fields = ('id', 'ancho', 'largo', 'alto', 'punto')
 
 
 class CotizacionSerializer(serializers.HyperlinkedModelSerializer):

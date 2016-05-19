@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'contenedor',
     'mueble',
     'cotizacionexpress',
+    'bulto',
     'api',
     'corsheaders',
     'rest_framework',
@@ -66,7 +67,9 @@ ROOT_URLCONF = 'cotizacionexpressbackend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(os.path.dirname(__file__), 'templates').replace('\\', '/'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
