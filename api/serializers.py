@@ -64,7 +64,7 @@ class CotizacionSerializer(serializers.HyperlinkedModelSerializer):
         model = Cotizacion
         fields = ('id', 'numero_cotizacion', 'cliente',
                   'responsable', 'fecha_de_cotizacion',
-                  'total_puntos', 'total_m3', 'estado')
+                  'total_cantidad', 'total_m3', 'estado')
 
 
 class CotizacionMuebleSerializer(serializers.HyperlinkedModelSerializer):

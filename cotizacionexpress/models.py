@@ -19,7 +19,7 @@ class Cotizacion(models.Model):
     cliente = models.ForeignKey(Cliente, null=True, blank=True)
     responsable = models.ForeignKey(User, null=True, blank=True)
     fecha_de_cotizacion = models.DateTimeField(auto_now_add=True, blank=True)
-    total_puntos = models.IntegerField(blank=True, default=0)
+    total_cantidad = models.IntegerField(blank=True, default=0)
     total_m3 = models.DecimalField(max_digits=7, decimal_places=2,
                                    blank=True, default=0.00)
     estado = models.CharField(max_length=20, choices=ESTADO_CHOICES)
