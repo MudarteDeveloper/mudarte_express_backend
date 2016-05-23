@@ -55,8 +55,10 @@ class BultoSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class CotizacionSerializer(serializers.HyperlinkedModelSerializer):
-    cliente = ClienteSerializer(many=False, read_only=True)
-    responsable = UserSerializer(many=False, read_only=True)
+    cliente = serializers.PrimaryKeyRelatedField(many=False,
+                                                 queryset=Cliente.objects.all())
+    responsable = serializers.PrimaryKeyRelatedField(many=False,
+                                                     queryset=User.objects.all())
 
     class Meta:
         model = Cotizacion
