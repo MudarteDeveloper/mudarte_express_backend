@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'mueble',
     'cotizacionexpress',
     'bulto',
+    'material',
     'api',
     'corsheaders',
     'rest_framework',

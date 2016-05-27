@@ -8,6 +8,45 @@ ESTADO_CHOICES = (
     ('inactivo', 'Inactivo'),
     )
 
+CP_PV_CHOICES = (
+    ('CP', 'CP'),
+    ('PV', 'PV')
+    )
+
+
+FUENTE_CHOICES = (
+    ('Internet Google', 'Internet Google'),
+    ('Internet Otro buscador', 'Internet Otro buscador'),
+    ('Internet Banner', 'Internet Banner'),
+    ('Cartel Via Publica', 'Cartel Via Publica'),
+    ('Recomendado Cliente', 'Recomendado Cliente'),
+    ('Cliente', 'Cliente'),
+    ('Volante diario/revista', 'Volante diario/revista'),
+    ('Volante via publica', 'Volante via publica'),
+    ('Volante en casa', 'Volante en casa'),
+    ('Volante en evento', 'Volante en evento'),
+    ('Publ. Diario/revista', 'Publ. Diario/revista'),
+    ('Public. Email', 'Public. Email'),
+    ('Public. Via Publica', 'Public. Via Publica'),
+    ('Publicidad TV', 'Publicidad TV'),
+    ('Pulicidad Radio', 'Pulicidad Radio'),
+    ('Publicidad Cine', 'Publicidad Cine'),
+    ('Camion Mudarte', 'Camion Mudarte'),
+    ('Telemercadeo', 'Telemercadeo'),
+    ('Deposito Belgrano', 'Deposito Belgrano'),
+    ('Inmobiliaria', 'Inmobiliaria'),
+    ('Tarjeta descuento', 'Tarjeta descuento'),
+    ('Otros', 'Otros'),
+    ('My Home Planners', 'My Home Planners')
+    )
+
+
+FORMA_PAGO = (
+    ('Efectivo'),
+    ('Transferencia'),
+    ('Cheque')
+    )
+
 
 # Create your models here.
 class Cotizacion(models.Model):
@@ -17,11 +56,75 @@ class Cotizacion(models.Model):
 
     numero_cotizacion = models.CharField(max_length=100, blank=True)
     cliente = models.ForeignKey(Cliente, null=True, blank=True)
-    responsable = models.ForeignKey(User, null=True, blank=True)
-    fecha_de_cotizacion = models.DateTimeField(auto_now_add=True, blank=True)
+    responsable = models.ForeignKey(User, null=True, blank=True, related_name="cotizador")
+    quien_cotizo = models.ForeignKey(User, null=True, blank=True, related_name="quien_cotizo")
+    quien_llamo = models.ForeignKey(User, null=True, blank=True, related_name="quien_llamo")
+    fecha_registro = models.DateField(auto_now_add=True, blank=True)
+    hora_registro = models.TimeField(auto_now_add=True, blank=True)
+    fuente = models.CharField(max_length=100, blank=True)
+    cp_pv = models.CharField(max_length=20, blank=True)
+    particular = models.BooleanField(default=None)
+    empresa = models.BooleanField(default=None)
+    gobierno = models.BooleanField(default=None)
+    cargo = models.CharField(max_length=100, blank=True)
+    forma_pago = models.CharField(max_length=100, blank=True)
+    fecha_de_carga = models.DateField(null=True, blank=True)
+    hora_de_carga = models.TimeField(null=True, blank=True)
+    fecha_estimada_mudanza = models.DateField(null=True, blank=True)
+    hora_estimada_mudanza = models.TimeField(null=True, blank=True)
+    fecha_de_cotizacion = models.DateField(null=True, blank=True)
+    hora_de_cotizacion = models.TimeField(null=True, blank=True)
+    fecha_de_aviso = models.DateField(null=True, blank=True)
+    hora_de_aviso = models.TimeField(null=True, blank=True)
+    fecha_de_cierre = models.DateField(null=True, blank=True)
+    hora_de_cierre = models.TimeField(null=True, blank=True)
+    fecha_real_mudanza = models.DateField(null=True, blank=True)
+    hora_real_mudanza = models.TimeField(null=True, blank=True)
+    direccion_origen = models.TextField(null=True, blank=True)
+    barrio_provincia_origen = models.CharField(max_length=200, blank=True)
+    observacion_origen = models.TextField(blank=True)
+    direccion_destino = models.TextField(blank=True)
+    barrio_provincia_destino = models.CharField(max_length=200, blank=True)
+    observacion_destino = models.TextField(blank=True)
+    recorrido_km = models.IntegerField(blank=True, default=0)
+    precio_km = models.DecimalField(max_digits=9, decimal_places=2,
+                                    blank=True, default=0.00)
+    monto_km = models.DecimalField(max_digits=9, decimal_places=2,
+                                   blank=True, default=0.00)
+    tiempo_de_carga = models.IntegerField(blank=True, default=0)
+    tiempo_de_descarga = models.IntegerField(blank=True, default=0)
+    numero_camion = models.IntegerField(blank=True, default=0)
+    numero_ayudante = models.IntegerField(blank=True, default=0)
+    seguro = models.BooleanField(default=None)
+    desarme_mueble = models.BooleanField(default=None)
+    ambiente = models.IntegerField(blank=True, default=0)
+    rampa = models.BooleanField(default=None)
+    mudanza = models.DecimalField(max_digits=9, decimal_places=2,
+                                  blank=True, default=0.00)
+    soga = models.DecimalField(max_digits=9, decimal_places=2,
+                               blank=True, default=0.00)
+    embalaje = models.DecimalField(max_digits=9, decimal_places=2,
+                                   blank=True, default=0.00)
+    desembalaje = models.DecimalField(max_digits=9, decimal_places=2,
+                                      blank=True, default=0.00)
+    materiales = models.DecimalField(max_digits=9, decimal_places=2,
+                                     blank=True, default=0.00)
+    piano_cajafuerte = models.DecimalField(max_digits=9, decimal_places=2,
+                                           blank=True, default=0.00)
+    ajuste = models.DecimalField(max_digits=9, decimal_places=2,
+                                 blank=True, default=0.00)
+    iva = models.DecimalField(max_digits=9, decimal_places=2,
+                              blank=True, default=0.00)
+    total_monto = models.DecimalField(max_digits=9, decimal_places=2,
+                                      blank=True, default=0.00)
+    observacion = models.TextField(blank=True)
     total_cantidad = models.IntegerField(blank=True, default=0)
     total_m3 = models.DecimalField(max_digits=7, decimal_places=2,
                                    blank=True, default=0.00)
+    porcentaje_margen = models.DecimalField(max_digits=7, decimal_places=2,
+                                            blank=True, default=0.00)
+    total_margen = models.DecimalField(max_digits=7, decimal_places=2,
+                                       blank=True, default=0.00)
     estado = models.CharField(max_length=20, choices=ESTADO_CHOICES)
 
     def __str__(self):
@@ -39,6 +142,7 @@ class CotizacionMueble(models.Model):
 
     cotizacion = models.ForeignKey(Cotizacion)
     mueble = models.CharField(max_length=100)
+    especificacion = models.CharField(max_length=100)
     descripcion = models.TextField(blank=True)
     ancho = models.DecimalField(max_digits=7, decimal_places=2)
     largo = models.DecimalField(max_digits=7, decimal_places=2)
@@ -75,3 +179,24 @@ class CotizacionContenedor(models.Model):
         verbose_name = "Contenedor de la cotización"
         verbose_name_plural = "Contenedores de la cotización"
         ordering = ["descripcion"]
+
+
+class CotizacionMaterial(models.Model):
+    """docstring for CotizacionMaterial"""
+    def __init__(self, *args, **kwargs):
+        super(CotizacionMaterial, self).__init__(*args, **kwargs)
+
+    cotizacion = models.ForeignKey(Cotizacion)
+    material = models.CharField(max_length=100)
+    cantidad = models.IntegerField()
+    precio_unitario = models.DecimalField(max_digits=9, decimal_places=2)
+    total = models.DecimalField(max_digits=9, decimal_places=2)
+    estado = models.CharField(max_length=20, choices=ESTADO_CHOICES)
+
+    def __str__(self):
+        return str(self.material)
+
+    class Meta:
+        verbose_name = "material de la cotización"
+        verbose_name_plural = "Materiales de la cotización"
+        ordering = ["material"]
