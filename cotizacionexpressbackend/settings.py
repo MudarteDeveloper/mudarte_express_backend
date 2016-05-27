@@ -65,6 +65,13 @@ CORS_ALLOW_CREDENTIALS = False
 
 ROOT_URLCONF = 'cotizacionexpressbackend.urls'
 
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'cotizacionexpressbackend.views.JSONRenderer2',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    )
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
