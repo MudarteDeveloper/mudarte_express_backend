@@ -128,7 +128,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$20000$MoMlrVQvhAuP$uqWya0ZcRLnMo776ofj9pev4zE/06yv0k8AF/qr4FYo=','2016-05-27 14:27:21.258682',1,'admin','Admin','','yusnelvy@gmail.com',1,1,'2016-05-18 00:09:25.202580'),(2,'123',NULL,0,'ezequiel','Ezequiel','Carnevale','',0,0,'2016-05-27 18:36:12.000000'),(3,'123',NULL,0,'yanina','Yanina Romina','Marchetti','',0,0,'2016-05-27 14:09:15.000000'),(4,'123',NULL,0,'melisa','Melisa','Troche Villalba','',0,0,'2016-05-27 18:39:15.000000'),(5,'123',NULL,0,'pedro','Pedro','Oubiña','',0,0,'2016-05-27 14:12:07.000000'),(6,'123',NULL,0,'jose','José','Mendoza','',0,0,'2016-05-27 18:42:07.000000'),(7,'123',NULL,0,'federico','Federico','','',0,0,'2016-05-27 14:13:54.000000'),(8,'123',NULL,0,'emmanuel','Emmanuel','','',0,0,'2016-05-27 18:43:54.000000');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$20000$MoMlrVQvhAuP$uqWya0ZcRLnMo776ofj9pev4zE/06yv0k8AF/qr4FYo=','2016-06-02 18:49:28.246429',1,'admin','Admin','','yusnelvy@gmail.com',1,1,'2016-05-18 00:09:25.202580'),(2,'123',NULL,0,'ezequiel','Ezequiel','Carnevale','',0,0,'2016-05-27 18:36:12.000000'),(3,'123',NULL,0,'yanina','Yanina Romina','Marchetti','',0,0,'2016-05-27 14:09:15.000000'),(4,'123',NULL,0,'melisa','Melisa','Troche Villalba','',0,0,'2016-05-27 18:39:15.000000'),(5,'123',NULL,0,'pedro','Pedro','Oubiña','',0,0,'2016-05-27 14:12:07.000000'),(6,'123',NULL,0,'jose','José','Mendoza','',0,0,'2016-05-27 18:42:07.000000'),(7,'123',NULL,0,'federico','Federico','','',0,0,'2016-05-27 14:13:54.000000'),(8,'123',NULL,0,'emmanuel','Emmanuel','','',0,0,'2016-05-27 18:43:54.000000');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -231,7 +231,7 @@ CREATE TABLE `cliente_cliente` (
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `estado` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -240,7 +240,6 @@ CREATE TABLE `cliente_cliente` (
 
 LOCK TABLES `cliente_cliente` WRITE;
 /*!40000 ALTER TABLE `cliente_cliente` DISABLE KEYS */;
-INSERT INTO `cliente_cliente` VALUES (1,'Cliente express','','','','activo');
 /*!40000 ALTER TABLE `cliente_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -309,7 +308,7 @@ CREATE TABLE `cotizacionexpress_cotizacion` (
   `total_m3` decimal(7,2) NOT NULL,
   `estado` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `cliente_id` int(11) DEFAULT NULL,
-  `responsable_id` int(11) DEFAULT NULL,
+  `cotizador_id` int(11) DEFAULT NULL,
   `ajuste` decimal(9,2) NOT NULL,
   `ambiente` int(11) NOT NULL,
   `barrio_provincia_destino` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
@@ -321,38 +320,25 @@ CREATE TABLE `cotizacionexpress_cotizacion` (
   `direccion_destino` longtext COLLATE utf8_unicode_ci NOT NULL,
   `direccion_origen` longtext COLLATE utf8_unicode_ci,
   `embalaje` decimal(9,2) NOT NULL,
-  `empresa` tinyint(1) NOT NULL,
-  `fecha_de_aviso` date,
-  `fecha_de_carga` date,
-  `fecha_de_cierre` date,
+  `fecha_de_carga` date NOT NULL,
   `fecha_estimada_mudanza` date,
-  `fecha_real_mudanza` date,
-  `fecha_registro` date NOT NULL,
   `forma_pago` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `fuente` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `gobierno` tinyint(1) NOT NULL,
-  `hora_de_aviso` time(6),
-  `hora_de_carga` time(6),
-  `hora_de_cierre` time(6),
+  `hora_de_carga` time(6) NOT NULL,
   `hora_de_cotizacion` time(6),
   `hora_estimada_mudanza` time(6),
-  `hora_real_mudanza` time(6),
-  `hora_registro` time(6) NOT NULL,
   `iva` decimal(9,2) NOT NULL,
   `materiales` decimal(9,2) NOT NULL,
   `monto_km` decimal(9,2) NOT NULL,
   `mudanza` decimal(9,2) NOT NULL,
   `numero_ayudante` int(11) NOT NULL,
-  `numero_camion` int(11) NOT NULL,
+  `numero_camion` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `observacion` longtext COLLATE utf8_unicode_ci NOT NULL,
   `observacion_destino` longtext COLLATE utf8_unicode_ci NOT NULL,
   `observacion_origen` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `particular` tinyint(1) NOT NULL,
   `piano_cajafuerte` decimal(9,2) NOT NULL,
   `porcentaje_margen` decimal(7,2) NOT NULL,
   `precio_km` decimal(9,2) NOT NULL,
-  `quien_cotizo_id` int(11),
-  `quien_llamo_id` int(11),
   `rampa` tinyint(1) NOT NULL,
   `recorrido_km` int(11) NOT NULL,
   `seguro` tinyint(1) NOT NULL,
@@ -361,15 +347,12 @@ CREATE TABLE `cotizacionexpress_cotizacion` (
   `tiempo_de_descarga` int(11) NOT NULL,
   `total_margen` decimal(7,2) NOT NULL,
   `total_monto` decimal(9,2) NOT NULL,
+  `tipo_cliente` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `cotizacionexpress_coti_cliente_id_2398059a_fk_cliente_cliente_id` (`cliente_id`),
-  KEY `cotizacionexpress_cotiza_responsable_id_7e9204db_fk_auth_user_id` (`responsable_id`),
-  KEY `cotizacionexpress_cotizacion_0c292482` (`quien_cotizo_id`),
-  KEY `cotizacionexpress_cotizacion_f0098b69` (`quien_llamo_id`),
+  KEY `cotizacionexpress_cotizaci_cotizador_id_47a33931_fk_auth_user_id` (`cotizador_id`),
   CONSTRAINT `cotizacionexpress_coti_cliente_id_2398059a_fk_cliente_cliente_id` FOREIGN KEY (`cliente_id`) REFERENCES `cliente_cliente` (`id`),
-  CONSTRAINT `cotizacionexpress_cotiz_quien_cotizo_id_1eff62e8_fk_auth_user_id` FOREIGN KEY (`quien_cotizo_id`) REFERENCES `auth_user` (`id`),
-  CONSTRAINT `cotizacionexpress_cotiza_quien_llamo_id_732a9e02_fk_auth_user_id` FOREIGN KEY (`quien_llamo_id`) REFERENCES `auth_user` (`id`),
-  CONSTRAINT `cotizacionexpress_cotiza_responsable_id_7e9204db_fk_auth_user_id` FOREIGN KEY (`responsable_id`) REFERENCES `auth_user` (`id`)
+  CONSTRAINT `cotizacionexpress_cotizaci_cotizador_id_47a33931_fk_auth_user_id` FOREIGN KEY (`cotizador_id`) REFERENCES `auth_user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -549,7 +532,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -558,7 +541,7 @@ CREATE TABLE `django_migrations` (
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2016-05-17 19:30:20.592936'),(2,'auth','0001_initial','2016-05-17 19:30:30.844185'),(3,'admin','0001_initial','2016-05-17 19:30:34.181412'),(4,'contenttypes','0002_remove_content_type_name','2016-05-17 19:30:35.881370'),(5,'auth','0002_alter_permission_name_max_length','2016-05-17 19:30:36.823965'),(6,'auth','0003_alter_user_email_max_length','2016-05-17 19:30:37.969229'),(7,'auth','0004_alter_user_username_opts','2016-05-17 19:30:38.058011'),(8,'auth','0005_alter_user_last_login_null','2016-05-17 19:30:38.804492'),(9,'auth','0006_require_contenttypes_0002','2016-05-17 19:30:38.881275'),(10,'cliente','0001_initial','2016-05-17 19:30:39.397887'),(11,'contenedor','0001_initial','2016-05-17 19:30:39.902001'),(12,'cotizacionexpress','0001_initial','2016-05-17 19:30:44.406362'),(13,'sessions','0001_initial','2016-05-17 19:30:45.487782'),(14,'mueble','0001_initial','2016-05-17 20:19:10.995888'),(15,'contenedor','0002_auto_20160517_1624','2016-05-17 20:54:42.821926'),(16,'cotizacionexpress','0002_auto_20160518_1349','2016-05-18 18:19:14.438926'),(17,'bulto','0001_initial','2016-05-19 13:39:42.316143'),(18,'cotizacionexpress','0003_auto_20160523_1149','2016-05-23 16:19:47.539279'),(19,'mueble','0002_auto_20160526_1112','2016-05-26 15:42:31.662729'),(20,'mueble','0002_auto_20160526_1115','2016-05-26 15:48:58.066846'),(21,'mueble','0003_mueble_tipo_mueble','2016-05-26 15:54:45.758178'),(22,'mueble','0004_auto_20160526_1405','2016-05-26 18:35:39.186240'),(23,'cotizacionexpress','0004_auto_20160527_0901','2016-05-27 13:34:41.349359'),(24,'cotizacionexpress','0005_cotizacionmueble_especificacion','2016-05-27 15:17:01.184761'),(25,'material','0001_initial','2016-05-27 15:17:01.800197');
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2016-05-17 19:30:20.592936'),(2,'auth','0001_initial','2016-05-17 19:30:30.844185'),(3,'admin','0001_initial','2016-05-17 19:30:34.181412'),(4,'contenttypes','0002_remove_content_type_name','2016-05-17 19:30:35.881370'),(5,'auth','0002_alter_permission_name_max_length','2016-05-17 19:30:36.823965'),(6,'auth','0003_alter_user_email_max_length','2016-05-17 19:30:37.969229'),(7,'auth','0004_alter_user_username_opts','2016-05-17 19:30:38.058011'),(8,'auth','0005_alter_user_last_login_null','2016-05-17 19:30:38.804492'),(9,'auth','0006_require_contenttypes_0002','2016-05-17 19:30:38.881275'),(10,'cliente','0001_initial','2016-05-17 19:30:39.397887'),(11,'contenedor','0001_initial','2016-05-17 19:30:39.902001'),(12,'cotizacionexpress','0001_initial','2016-05-17 19:30:44.406362'),(13,'sessions','0001_initial','2016-05-17 19:30:45.487782'),(14,'mueble','0001_initial','2016-05-17 20:19:10.995888'),(15,'contenedor','0002_auto_20160517_1624','2016-05-17 20:54:42.821926'),(16,'cotizacionexpress','0002_auto_20160518_1349','2016-05-18 18:19:14.438926'),(17,'bulto','0001_initial','2016-05-19 13:39:42.316143'),(18,'cotizacionexpress','0003_auto_20160523_1149','2016-05-23 16:19:47.539279'),(19,'mueble','0002_auto_20160526_1112','2016-05-26 15:42:31.662729'),(20,'mueble','0002_auto_20160526_1115','2016-05-26 15:48:58.066846'),(21,'mueble','0003_mueble_tipo_mueble','2016-05-26 15:54:45.758178'),(22,'mueble','0004_auto_20160526_1405','2016-05-26 18:35:39.186240'),(23,'cotizacionexpress','0004_auto_20160527_0901','2016-05-27 13:34:41.349359'),(24,'cotizacionexpress','0005_cotizacionmueble_especificacion','2016-05-27 15:17:01.184761'),(25,'material','0001_initial','2016-05-27 15:17:01.800197'),(26,'cotizacionexpress','0006_auto_20160603_1210','2016-06-03 16:40:57.388853');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -584,7 +567,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('g4g3spfskd0k9yk34qabjd7km03gb1ew','N2NmMjE3MTViMjNiMGMyYWU3NDBlMDhlMDY5ZTBlMmVlMDJmNjQ3ODp7Il9hdXRoX3VzZXJfaGFzaCI6ImQyZTJiZTAwMTdmMzE2YjFiNjgzNjEzZGI1NTJkMmIwZjVlZjkxMTkiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2016-05-31 19:39:44.964499'),('kw6zbp0ol7s3o0v9jw4chw1cafd2pr5s','YjgzYWRjMDA2MTk2ZjJlZjg0NDViODIwNDkxODQ3MGVkZjczNTg5ODp7Il9hdXRoX3VzZXJfaGFzaCI6ImQyZTJiZTAwMTdmMzE2YjFiNjgzNjEzZGI1NTJkMmIwZjVlZjkxMTkiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2016-06-10 14:27:21.352065');
+INSERT INTO `django_session` VALUES ('g4g3spfskd0k9yk34qabjd7km03gb1ew','N2NmMjE3MTViMjNiMGMyYWU3NDBlMDhlMDY5ZTBlMmVlMDJmNjQ3ODp7Il9hdXRoX3VzZXJfaGFzaCI6ImQyZTJiZTAwMTdmMzE2YjFiNjgzNjEzZGI1NTJkMmIwZjVlZjkxMTkiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2016-05-31 19:39:44.964499'),('j90ypydnjhisls19lr02ntli8dk2upfc','M2YyODVjMDY3ODc3ZmVmNzEyMzRjOTgxYWEzNWRkMmI1NTYyMTcxODp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiJkMmUyYmUwMDE3ZjMxNmIxYjY4MzYxM2RiNTUyZDJiMGY1ZWY5MTE5In0=','2016-06-16 18:49:28.429551'),('kw6zbp0ol7s3o0v9jw4chw1cafd2pr5s','YjgzYWRjMDA2MTk2ZjJlZjg0NDViODIwNDkxODQ3MGVkZjczNTg5ODp7Il9hdXRoX3VzZXJfaGFzaCI6ImQyZTJiZTAwMTdmMzE2YjFiNjgzNjEzZGI1NTJkMmIwZjVlZjkxMTkiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2016-06-10 14:27:21.352065');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -683,4 +666,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-02 11:11:14
+-- Dump completed on 2016-06-03 12:18:18

@@ -79,31 +79,22 @@ class MaterialSerializer(serializers.HyperlinkedModelSerializer):
 class CotizacionSerializer(serializers.HyperlinkedModelSerializer):
     cliente = serializers.PrimaryKeyRelatedField(many=False,
                                                  queryset=Cliente.objects.all())
-    responsable = serializers.PrimaryKeyRelatedField(many=False,
-                                                     queryset=User.objects.all())
-    quien_cotizo = serializers.PrimaryKeyRelatedField(many=False,
-                                                     queryset=User.objects.all())
-    quien_llamo = serializers.PrimaryKeyRelatedField(many=False,
-                                                     queryset=User.objects.all())
+    cotizador = serializers.PrimaryKeyRelatedField(many=False,
+                                                   queryset=User.objects.all())
 
     class Meta:
         model = Cotizacion
         fields = ('id', 'numero_cotizacion', 'cliente',
-                  'responsable', 'quien_cotizo',
-                  'quien_llamo', 'fecha_registro',
-                  'hora_registro', 'fuente', 'cp_pv',
-                  'particular', 'empresa', 'gobierno',
-                  'cargo', 'forma_pago', 'fecha_de_carga',
-                  'hora_de_carga', 'fecha_estimada_mudanza',
-                  'hora_estimada_mudanza', 'fecha_de_cotizacion',
-                  'hora_de_cotizacion', 'fecha_de_aviso',
-                  'hora_de_aviso', 'fecha_de_cierre',
-                  'hora_de_cierre', 'fecha_real_mudanza',
-                  'hora_real_mudanza', 'direccion_origen',
-                  'barrio_provincia_origen', 'observacion_origen',
-                  'direccion_destino', 'barrio_provincia_destino',
-                  'observacion_destino', 'recorrido_km',
-                  'precio_km', 'monto_km', 'tiempo_de_carga',
+                  'cotizador',  'fuente', 'cp_pv',
+                  'tipo_cliente', 'cargo', 'forma_pago',
+                  'fecha_de_carga', 'hora_de_carga',
+                  'fecha_estimada_mudanza', 'hora_estimada_mudanza',
+                  'fecha_de_cotizacion', 'hora_de_cotizacion',
+                  'direccion_origen', 'barrio_provincia_origen',
+                  'observacion_origen', 'direccion_destino',
+                  'barrio_provincia_destino', 'observacion_destino',
+                  'recorrido_km', 'precio_km',
+                  'monto_km', 'tiempo_de_carga',
                   'tiempo_de_descarga', 'numero_camion',
                   'numero_ayudante', 'seguro', 'desarme_mueble',
                   'ambiente', 'rampa', 'mudanza', 'soga',
