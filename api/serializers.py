@@ -99,10 +99,11 @@ class CotizacionSerializer(serializers.HyperlinkedModelSerializer):
                   'numero_ayudante', 'seguro', 'desarme_mueble',
                   'ambiente', 'rampa', 'mudanza', 'soga',
                   'embalaje', 'desembalaje', 'materiales',
-                  'piano_cajafuerte', 'ajuste', 'iva',
-                  'total_monto', 'observacion', 'total_cantidad',
-                  'total_m3', 'porcentaje_margen', 'total_margen',
-                  'estado')
+                  'piano_cajafuerte', 'subtotal1', 'ajuste',
+                  'porcentaje_ajuste', 'subtotal2', 'iva',
+                  'porcentaje_iva', 'total_monto', 'observacion',
+                  'total_cantidad', 'total_m3', 'porcentaje_margen',
+                  'total_margen', 'estado')
 
 
 class CotizacionMuebleSerializer(serializers.HyperlinkedModelSerializer):

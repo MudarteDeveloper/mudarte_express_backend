@@ -231,7 +231,7 @@ CREATE TABLE `cliente_cliente` (
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `estado` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -240,6 +240,7 @@ CREATE TABLE `cliente_cliente` (
 
 LOCK TABLES `cliente_cliente` WRITE;
 /*!40000 ALTER TABLE `cliente_cliente` DISABLE KEYS */;
+INSERT INTO `cliente_cliente` VALUES (1,'cliente express','','','','activo');
 /*!40000 ALTER TABLE `cliente_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -314,7 +315,7 @@ CREATE TABLE `cotizacionexpress_cotizacion` (
   `barrio_provincia_destino` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `barrio_provincia_origen` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `cargo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `cp_pv` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `cp_pv` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `desarme_mueble` tinyint(1) NOT NULL,
   `desembalaje` decimal(9,2) NOT NULL,
   `direccion_destino` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -348,6 +349,10 @@ CREATE TABLE `cotizacionexpress_cotizacion` (
   `total_margen` decimal(7,2) NOT NULL,
   `total_monto` decimal(9,2) NOT NULL,
   `tipo_cliente` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `porcentaje_ajuste` decimal(7,2) NOT NULL,
+  `porcentaje_iva` decimal(7,2) NOT NULL,
+  `subtotal1` decimal(7,2) NOT NULL,
+  `subtotal2` decimal(7,2) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `cotizacionexpress_coti_cliente_id_2398059a_fk_cliente_cliente_id` (`cliente_id`),
   KEY `cotizacionexpress_cotizaci_cotizador_id_47a33931_fk_auth_user_id` (`cotizador_id`),
@@ -532,7 +537,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -541,7 +546,7 @@ CREATE TABLE `django_migrations` (
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2016-05-17 19:30:20.592936'),(2,'auth','0001_initial','2016-05-17 19:30:30.844185'),(3,'admin','0001_initial','2016-05-17 19:30:34.181412'),(4,'contenttypes','0002_remove_content_type_name','2016-05-17 19:30:35.881370'),(5,'auth','0002_alter_permission_name_max_length','2016-05-17 19:30:36.823965'),(6,'auth','0003_alter_user_email_max_length','2016-05-17 19:30:37.969229'),(7,'auth','0004_alter_user_username_opts','2016-05-17 19:30:38.058011'),(8,'auth','0005_alter_user_last_login_null','2016-05-17 19:30:38.804492'),(9,'auth','0006_require_contenttypes_0002','2016-05-17 19:30:38.881275'),(10,'cliente','0001_initial','2016-05-17 19:30:39.397887'),(11,'contenedor','0001_initial','2016-05-17 19:30:39.902001'),(12,'cotizacionexpress','0001_initial','2016-05-17 19:30:44.406362'),(13,'sessions','0001_initial','2016-05-17 19:30:45.487782'),(14,'mueble','0001_initial','2016-05-17 20:19:10.995888'),(15,'contenedor','0002_auto_20160517_1624','2016-05-17 20:54:42.821926'),(16,'cotizacionexpress','0002_auto_20160518_1349','2016-05-18 18:19:14.438926'),(17,'bulto','0001_initial','2016-05-19 13:39:42.316143'),(18,'cotizacionexpress','0003_auto_20160523_1149','2016-05-23 16:19:47.539279'),(19,'mueble','0002_auto_20160526_1112','2016-05-26 15:42:31.662729'),(20,'mueble','0002_auto_20160526_1115','2016-05-26 15:48:58.066846'),(21,'mueble','0003_mueble_tipo_mueble','2016-05-26 15:54:45.758178'),(22,'mueble','0004_auto_20160526_1405','2016-05-26 18:35:39.186240'),(23,'cotizacionexpress','0004_auto_20160527_0901','2016-05-27 13:34:41.349359'),(24,'cotizacionexpress','0005_cotizacionmueble_especificacion','2016-05-27 15:17:01.184761'),(25,'material','0001_initial','2016-05-27 15:17:01.800197'),(26,'cotizacionexpress','0006_auto_20160603_1210','2016-06-03 16:40:57.388853');
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2016-05-17 19:30:20.592936'),(2,'auth','0001_initial','2016-05-17 19:30:30.844185'),(3,'admin','0001_initial','2016-05-17 19:30:34.181412'),(4,'contenttypes','0002_remove_content_type_name','2016-05-17 19:30:35.881370'),(5,'auth','0002_alter_permission_name_max_length','2016-05-17 19:30:36.823965'),(6,'auth','0003_alter_user_email_max_length','2016-05-17 19:30:37.969229'),(7,'auth','0004_alter_user_username_opts','2016-05-17 19:30:38.058011'),(8,'auth','0005_alter_user_last_login_null','2016-05-17 19:30:38.804492'),(9,'auth','0006_require_contenttypes_0002','2016-05-17 19:30:38.881275'),(10,'cliente','0001_initial','2016-05-17 19:30:39.397887'),(11,'contenedor','0001_initial','2016-05-17 19:30:39.902001'),(12,'cotizacionexpress','0001_initial','2016-05-17 19:30:44.406362'),(13,'sessions','0001_initial','2016-05-17 19:30:45.487782'),(14,'mueble','0001_initial','2016-05-17 20:19:10.995888'),(15,'contenedor','0002_auto_20160517_1624','2016-05-17 20:54:42.821926'),(16,'cotizacionexpress','0002_auto_20160518_1349','2016-05-18 18:19:14.438926'),(17,'bulto','0001_initial','2016-05-19 13:39:42.316143'),(18,'cotizacionexpress','0003_auto_20160523_1149','2016-05-23 16:19:47.539279'),(19,'mueble','0002_auto_20160526_1112','2016-05-26 15:42:31.662729'),(20,'mueble','0002_auto_20160526_1115','2016-05-26 15:48:58.066846'),(21,'mueble','0003_mueble_tipo_mueble','2016-05-26 15:54:45.758178'),(22,'mueble','0004_auto_20160526_1405','2016-05-26 18:35:39.186240'),(23,'cotizacionexpress','0004_auto_20160527_0901','2016-05-27 13:34:41.349359'),(24,'cotizacionexpress','0005_cotizacionmueble_especificacion','2016-05-27 15:17:01.184761'),(25,'material','0001_initial','2016-05-27 15:17:01.800197'),(26,'cotizacionexpress','0006_auto_20160603_1210','2016-06-03 16:40:57.388853'),(27,'cotizacionexpress','0007_auto_20160606_0928','2016-06-06 13:58:29.035575');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -666,4 +671,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-03 12:18:18
+-- Dump completed on 2016-06-06  9:48:31

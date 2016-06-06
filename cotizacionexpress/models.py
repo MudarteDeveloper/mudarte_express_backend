@@ -58,7 +58,7 @@ class Cotizacion(models.Model):
     cliente = models.ForeignKey(Cliente, null=True, blank=True)
     cotizador = models.ForeignKey(User, null=True, blank=True, related_name="cotizador")
     fuente = models.CharField(max_length=100, blank=True)
-    cp_pv = models.CharField(max_length=20, blank=True)
+    cp_pv = models.CharField(max_length=250, blank=True)
     tipo_cliente = models.CharField(max_length=20, blank=True)
     cargo = models.CharField(max_length=100, blank=True)
     forma_pago = models.CharField(max_length=100, blank=True)
@@ -99,10 +99,18 @@ class Cotizacion(models.Model):
                                      blank=True, default=0.00)
     piano_cajafuerte = models.DecimalField(max_digits=9, decimal_places=2,
                                            blank=True, default=0.00)
+    subtotal1 = models.DecimalField(max_digits=7, decimal_places=2,
+                                    blank=True, default=0.00)
     ajuste = models.DecimalField(max_digits=9, decimal_places=2,
                                  blank=True, default=0.00)
+    porcentaje_ajuste = models.DecimalField(max_digits=7, decimal_places=2,
+                                            blank=True, default=0.00)
+    subtotal2 = models.DecimalField(max_digits=7, decimal_places=2,
+                                    blank=True, default=0.00)
     iva = models.DecimalField(max_digits=9, decimal_places=2,
                               blank=True, default=0.00)
+    porcentaje_iva = models.DecimalField(max_digits=7, decimal_places=2,
+                                         blank=True, default=0.00)
     total_monto = models.DecimalField(max_digits=9, decimal_places=2,
                                       blank=True, default=0.00)
     observacion = models.TextField(blank=True)
