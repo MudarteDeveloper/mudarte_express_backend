@@ -631,7 +631,7 @@ CREATE TABLE `material_material` (
 
 LOCK TABLES `material_material` WRITE;
 /*!40000 ALTER TABLE `material_material` DISABLE KEYS */;
-INSERT INTO `material_material` VALUES (1,'Cajas Nuevas',40.00,NULL),(2,'Cajas Reciclables',30.00,NULL),(3,'Streech',350.00,NULL),(4,'Pluriball',350.00,NULL),(5,'Corrugado',145.00,NULL),(6,'Cintas',41.00,NULL),(7,'Papel Sulfito',50.00,NULL),(8,'Bolsas',100.00,NULL);
+INSERT INTO `material_material` VALUES (1,'Cajas Nuevas',40.00,1),(2,'Cajas Reciclables',30.00,2),(3,'Streech',350.00,NULL),(4,'Pluriball',350.00,NULL),(5,'Corrugado',145.00,NULL),(6,'Cintas',41.00,NULL),(7,'Papel Sulfito',50.00,NULL),(8,'Bolsas',100.00,5);
 /*!40000 ALTER TABLE `material_material` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -705,4 +705,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-14 14:59:13
+-- Dump completed on 2016-06-14 15:17:05

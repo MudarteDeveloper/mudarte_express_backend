@@ -76,10 +76,12 @@ class BultoSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class MaterialSerializer(serializers.HyperlinkedModelSerializer):
+    contenedor = serializers.PrimaryKeyRelatedField(many=False,
+                                                    queryset=Contenedor.objects.all())
 
     class Meta:
         model = Material
-        fields = ('id', 'descripcion', 'precio')
+        fields = ('id', 'descripcion', 'precio', 'contenedor')
 
 
 class CotizacionSerializer(serializers.HyperlinkedModelSerializer):
