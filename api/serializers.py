@@ -2,7 +2,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from cliente.models import Cliente
 from mueble.models import Mueble, TipoMueble
-from contenedor.models import Contenedor
+from contenedor.models import Contenedor, DetalleContenedor
 from bulto.models import Bulto
 from material.models import Material
 from cotizacionexpress.models import Cotizacion, CotizacionMueble, \
@@ -50,16 +50,22 @@ class MuebleSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ContenedorSerializer(serializers.HyperlinkedModelSerializer):
+    contenedor = serializers.PrimaryKeyRelatedField(many=False,
+                                                    queryset=Contenedor.objects.all())
 
     class Meta:
-        model = Contenedor
-        fields = ('id', 'contenedor', 'siglas', 'unidad', 'punto')
+        model = DetalleContenedor
+        fields = ('id', 'contenedor', 'siglas', 'cantidad', 'punto')
 
 
-class ContenedorDescripcionSerializer(serializers.ModelSerializer):
+class ContenedorDescripcionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Contenedor
-        fields = ('contenedor',)
+        fields = ('id', 'contenedor',
+                  'propuesto1',
+                  'propuesto2',
+                  'propuesto3',
+                  'propuesto4')
 
 
 class BultoSerializer(serializers.HyperlinkedModelSerializer):

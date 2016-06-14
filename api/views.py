@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import viewsets
 from cliente.models import Cliente
 from mueble.models import Mueble, TipoMueble
-from contenedor.models import Contenedor
+from contenedor.models import Contenedor, DetalleContenedor
 from cotizacionexpress.models import Cotizacion, CotizacionMueble, \
     CotizacionContenedor, CotizacionMaterial
 from bulto.models import Bulto
@@ -60,20 +60,20 @@ class MuebleViewSet(viewsets.ModelViewSet):
 
 
 class ContenedorViewSet(viewsets.ModelViewSet):
-    queryset = Contenedor.objects.all()
+    queryset = DetalleContenedor.objects.all()
     serializer_class = ContenedorSerializer
 
     def get_queryset(self):
         query = self.request.query_params
         queryset = self.queryset
         if 'contenedor' in query.keys():
-            queryset = queryset.filter(contenedor=query.get('contenedor')).order_by('-unidad')
+            queryset = queryset.filter(contenedor=query.get('contenedor')).order_by('-cantidad')
 
         return queryset
 
 
-class ContenedorDescripcionViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Contenedor.objects.values('contenedor').distinct()
+class ContenedorDescripcionViewSet(viewsets.ModelViewSet):
+    queryset = Contenedor.objects.all()
     serializer_class = ContenedorDescripcionSerializer
 
 
