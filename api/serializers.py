@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from cliente.models import Cliente
-from mueble.models import Mueble, TipoMueble
+from mueble.models import Mueble, TipoMueble, EspecificacionMueble
 from contenedor.models import Contenedor, DetalleContenedor
 from bulto.models import Bulto
 from material.models import Material
@@ -20,6 +20,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
                   'date_joined')
 
 
+class UserSerializer2(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'first_name', 'last_name')
+
+
 class ClienteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Cliente
@@ -28,25 +34,32 @@ class ClienteSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class TipoMuebleSerializer(serializers.HyperlinkedModelSerializer):
+
     class Meta:
         model = TipoMueble
         fields = ('id', 'tipo_mueble')
 
 
-class MuebleDescripcionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Mueble
-        fields = ('descripcion',)
-
-
 class MuebleSerializer(serializers.HyperlinkedModelSerializer):
+    mueble = serializers.PrimaryKeyRelatedField(many=False,
+                                                queryset=Mueble.objects.all())
+
+    class Meta:
+        model = EspecificacionMueble
+        fields = ('id', 'especificacion', 'ancho',
+                  'largo', 'alto', 'punto', 'mueble')
+
+
+class MuebleDescripcionSerializer(serializers.HyperlinkedModelSerializer):
     tipo_mueble = serializers.PrimaryKeyRelatedField(many=False,
                                                      queryset=TipoMueble.objects.all())
+    especificacionmubles = MuebleSerializer(many=True,
+                                            read_only=True,
+                                            source='especificacionmuble_set')
 
     class Meta:
         model = Mueble
-        fields = ('id', 'descripcion', 'especificacion', 'ancho',
-                  'largo', 'alto', 'punto', 'tipo_mueble')
+        fields = ('id', 'descripcion', 'tipo_mueble', 'especificacionmubles')
 
 
 class ContenedorSerializer(serializers.HyperlinkedModelSerializer):
@@ -126,7 +139,7 @@ class CotizacionSerializer(serializers.HyperlinkedModelSerializer):
     clienteId = serializers.PrimaryKeyRelatedField(write_only=True,
                                                    queryset=Cliente.objects.all(),
                                                    source='cliente')
-    cotizador = UserSerializer(read_only=True)
+    cotizador = UserSerializer2(read_only=True)
     cotizadorId = serializers.PrimaryKeyRelatedField(write_only=True,
                                                      queryset=User.objects.all(),
                                                      source='cotizador')

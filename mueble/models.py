@@ -25,11 +25,6 @@ class Mueble(models.Model):
 
     tipo_mueble = models.ForeignKey(TipoMueble, on_delete=models.PROTECT)
     descripcion = models.CharField(max_length=100)
-    especificacion = models.CharField(max_length=100)
-    ancho = models.DecimalField(max_digits=7, decimal_places=2)
-    largo = models.DecimalField(max_digits=7, decimal_places=2)
-    alto = models.DecimalField(max_digits=7, decimal_places=2)
-    punto = models.IntegerField()
 
     def __str__(self):
         return self.descripcion
@@ -37,3 +32,23 @@ class Mueble(models.Model):
     class Meta:
         verbose_name = "Mueble"
         verbose_name_plural = "Muebles"
+
+
+class EspecificacionMueble(models.Model):
+    """docstring for EspecificacionMueble"""
+    def __init__(self, *args, **kwargs):
+        super(EspecificacionMueble, self).__init__(*args, **kwargs)
+
+    mueble = models.ForeignKey(Mueble, on_delete=models.PROTECT)
+    especificacion = models.CharField(max_length=100)
+    ancho = models.DecimalField(max_digits=7, decimal_places=2)
+    largo = models.DecimalField(max_digits=7, decimal_places=2)
+    alto = models.DecimalField(max_digits=7, decimal_places=2)
+    punto = models.IntegerField()
+
+    def __str__(self):
+        return self.especificacion
+
+    class Meta:
+        verbose_name = "Especificación del mueble"
+        verbose_name_plural = "Especificaciones del mueble"
