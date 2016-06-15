@@ -85,7 +85,7 @@ CREATE TABLE `auth_permission` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `content_type_id` (`content_type_id`,`codename`),
   CONSTRAINT `auth_permissi_content_type_id_552c6ac8_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +94,7 @@ CREATE TABLE `auth_permission` (
 
 LOCK TABLES `auth_permission` WRITE;
 /*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
-INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can add permission',2,'add_permission'),(5,'Can change permission',2,'change_permission'),(6,'Can delete permission',2,'delete_permission'),(7,'Can add group',3,'add_group'),(8,'Can change group',3,'change_group'),(9,'Can delete group',3,'delete_group'),(10,'Can add user',4,'add_user'),(11,'Can change user',4,'change_user'),(12,'Can delete user',4,'delete_user'),(13,'Can add content type',5,'add_contenttype'),(14,'Can change content type',5,'change_contenttype'),(15,'Can delete content type',5,'delete_contenttype'),(16,'Can add session',6,'add_session'),(17,'Can change session',6,'change_session'),(18,'Can delete session',6,'delete_session'),(19,'Can add Cliente',7,'add_cliente'),(20,'Can change Cliente',7,'change_cliente'),(21,'Can delete Cliente',7,'delete_cliente'),(22,'Can add Contenedor',8,'add_contenedor'),(23,'Can change Contenedor',8,'change_contenedor'),(24,'Can delete Contenedor',8,'delete_contenedor'),(25,'Can add Cotización',9,'add_cotizacion'),(26,'Can change Cotización',9,'change_cotizacion'),(27,'Can delete Cotización',9,'delete_cotizacion'),(28,'Can add mueble de la cotización',10,'add_cotizacionmueble'),(29,'Can change mueble de la cotización',10,'change_cotizacionmueble'),(30,'Can delete mueble de la cotización',10,'delete_cotizacionmueble'),(31,'Can add Contenedor de la cotización',11,'add_cotizacioncontenedor'),(32,'Can change Contenedor de la cotización',11,'change_cotizacioncontenedor'),(33,'Can delete Contenedor de la cotización',11,'delete_cotizacioncontenedor'),(34,'Can add Mueble',12,'add_mueble'),(35,'Can change Mueble',12,'change_mueble'),(36,'Can delete Mueble',12,'delete_mueble'),(37,'Can add cors model',13,'add_corsmodel'),(38,'Can change cors model',13,'change_corsmodel'),(39,'Can delete cors model',13,'delete_corsmodel'),(40,'Can add Bulto',14,'add_bulto'),(41,'Can change Bulto',14,'change_bulto'),(42,'Can delete Bulto',14,'delete_bulto'),(46,'Can add Tipo mueble',16,'add_tipomueble'),(47,'Can change Tipo mueble',16,'change_tipomueble'),(48,'Can delete Tipo mueble',16,'delete_tipomueble'),(49,'Can add material de la cotización',17,'add_cotizacionmaterial'),(50,'Can change material de la cotización',17,'change_cotizacionmaterial'),(51,'Can delete material de la cotización',17,'delete_cotizacionmaterial'),(52,'Can add Material',18,'add_material'),(53,'Can change Material',18,'change_material'),(54,'Can delete Material',18,'delete_material'),(55,'Can add Detalle contenedor',19,'add_detallecontenedor'),(56,'Can change Detalle contenedor',19,'change_detallecontenedor'),(57,'Can delete Detalle contenedor',19,'delete_detallecontenedor');
+INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can add permission',2,'add_permission'),(5,'Can change permission',2,'change_permission'),(6,'Can delete permission',2,'delete_permission'),(7,'Can add group',3,'add_group'),(8,'Can change group',3,'change_group'),(9,'Can delete group',3,'delete_group'),(10,'Can add user',4,'add_user'),(11,'Can change user',4,'change_user'),(12,'Can delete user',4,'delete_user'),(13,'Can add content type',5,'add_contenttype'),(14,'Can change content type',5,'change_contenttype'),(15,'Can delete content type',5,'delete_contenttype'),(16,'Can add session',6,'add_session'),(17,'Can change session',6,'change_session'),(18,'Can delete session',6,'delete_session'),(19,'Can add Cliente',7,'add_cliente'),(20,'Can change Cliente',7,'change_cliente'),(21,'Can delete Cliente',7,'delete_cliente'),(22,'Can add Contenedor',8,'add_contenedor'),(23,'Can change Contenedor',8,'change_contenedor'),(24,'Can delete Contenedor',8,'delete_contenedor'),(25,'Can add Cotización',9,'add_cotizacion'),(26,'Can change Cotización',9,'change_cotizacion'),(27,'Can delete Cotización',9,'delete_cotizacion'),(28,'Can add mueble de la cotización',10,'add_cotizacionmueble'),(29,'Can change mueble de la cotización',10,'change_cotizacionmueble'),(30,'Can delete mueble de la cotización',10,'delete_cotizacionmueble'),(31,'Can add Contenedor de la cotización',11,'add_cotizacioncontenedor'),(32,'Can change Contenedor de la cotización',11,'change_cotizacioncontenedor'),(33,'Can delete Contenedor de la cotización',11,'delete_cotizacioncontenedor'),(34,'Can add Mueble',12,'add_mueble'),(35,'Can change Mueble',12,'change_mueble'),(36,'Can delete Mueble',12,'delete_mueble'),(37,'Can add cors model',13,'add_corsmodel'),(38,'Can change cors model',13,'change_corsmodel'),(39,'Can delete cors model',13,'delete_corsmodel'),(40,'Can add Bulto',14,'add_bulto'),(41,'Can change Bulto',14,'change_bulto'),(42,'Can delete Bulto',14,'delete_bulto'),(46,'Can add Tipo mueble',16,'add_tipomueble'),(47,'Can change Tipo mueble',16,'change_tipomueble'),(48,'Can delete Tipo mueble',16,'delete_tipomueble'),(49,'Can add material de la cotización',17,'add_cotizacionmaterial'),(50,'Can change material de la cotización',17,'change_cotizacionmaterial'),(51,'Can delete material de la cotización',17,'delete_cotizacionmaterial'),(52,'Can add Material',18,'add_material'),(53,'Can change Material',18,'change_material'),(54,'Can delete Material',18,'delete_material'),(55,'Can add Detalle contenedor',19,'add_detallecontenedor'),(56,'Can change Detalle contenedor',19,'change_detallecontenedor'),(57,'Can delete Detalle contenedor',19,'delete_detallecontenedor'),(61,'Can add Especificación del mueble',21,'add_especificacionmueble'),(62,'Can change Especificación del mueble',21,'change_especificacionmueble'),(63,'Can delete Especificación del mueble',21,'delete_especificacionmueble');
 /*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -389,7 +389,7 @@ CREATE TABLE `cotizacionexpress_cotizacion` (
   KEY `cotizacionexpress_cotizaci_cotizador_id_47a33931_fk_auth_user_id` (`cotizador_id`),
   CONSTRAINT `cotizacionexpress_coti_cliente_id_2398059a_fk_cliente_cliente_id` FOREIGN KEY (`cliente_id`) REFERENCES `cliente_cliente` (`id`),
   CONSTRAINT `cotizacionexpress_cotizaci_cotizador_id_47a33931_fk_auth_user_id` FOREIGN KEY (`cotizador_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -398,7 +398,6 @@ CREATE TABLE `cotizacionexpress_cotizacion` (
 
 LOCK TABLES `cotizacionexpress_cotizacion` WRITE;
 /*!40000 ALTER TABLE `cotizacionexpress_cotizacion` DISABLE KEYS */;
-INSERT INTO `cotizacionexpress_cotizacion` VALUES (1,'ce-0001','2016-06-15',15,5.10,'activo',6,6,-100.00,0,'CABA - Belgrano','CABA - Nueva Pompeya','cargo','empres',0,0.00,'destino','dire ori',0.00,'2016-06-15','2016-06-16','Efectivo','Volante diario/revista','11:33:33.610232','11:30:17.000000','22:10:00.000000',2711.10,550.00,450.00,12000.00,0,'0','','jhdjhjd','dhdhfj',0.00,25.00,30.00,0,15,0,10.00,0,0,0.00,15621.10,'Particular',-0.77,21.00,13010.00,12910.00);
 /*!40000 ALTER TABLE `cotizacionexpress_cotizacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -419,7 +418,7 @@ CREATE TABLE `cotizacionexpress_cotizacioncontenedor` (
   PRIMARY KEY (`id`),
   KEY `cotiza_cotizacion_id_60006026_fk_cotizacionexpress_cotizacion_id` (`cotizacion_id`),
   CONSTRAINT `cotiza_cotizacion_id_60006026_fk_cotizacionexpress_cotizacion_id` FOREIGN KEY (`cotizacion_id`) REFERENCES `cotizacionexpress_cotizacion` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -428,7 +427,6 @@ CREATE TABLE `cotizacionexpress_cotizacioncontenedor` (
 
 LOCK TABLES `cotizacionexpress_cotizacioncontenedor` WRITE;
 /*!40000 ALTER TABLE `cotizacionexpress_cotizacioncontenedor` DISABLE KEYS */;
-INSERT INTO `cotizacionexpress_cotizacioncontenedor` VALUES (1,'Bolsa',2,4,'activo',1),(2,'Canasto',8,10,'activo',1);
 /*!40000 ALTER TABLE `cotizacionexpress_cotizacioncontenedor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -450,7 +448,7 @@ CREATE TABLE `cotizacionexpress_cotizacionmaterial` (
   PRIMARY KEY (`id`),
   KEY `cotizacionexpress_cotizacionmaterial_1b44b901` (`cotizacion_id`),
   CONSTRAINT `cotiza_cotizacion_id_50f39ebe_fk_cotizacionexpress_cotizacion_id` FOREIGN KEY (`cotizacion_id`) REFERENCES `cotizacionexpress_cotizacion` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -459,7 +457,6 @@ CREATE TABLE `cotizacionexpress_cotizacionmaterial` (
 
 LOCK TABLES `cotizacionexpress_cotizacionmaterial` WRITE;
 /*!40000 ALTER TABLE `cotizacionexpress_cotizacionmaterial` DISABLE KEYS */;
-INSERT INTO `cotizacionexpress_cotizacionmaterial` VALUES (1,'Bolsas',2,100.00,200.00,'activo',1),(2,'Streech',1,350.00,350.00,'activo',1);
 /*!40000 ALTER TABLE `cotizacionexpress_cotizacionmaterial` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -486,7 +483,7 @@ CREATE TABLE `cotizacionexpress_cotizacionmueble` (
   PRIMARY KEY (`id`),
   KEY `cotiza_cotizacion_id_59215a39_fk_cotizacionexpress_cotizacion_id` (`cotizacion_id`),
   CONSTRAINT `cotiza_cotizacion_id_59215a39_fk_cotizacionexpress_cotizacion_id` FOREIGN KEY (`cotizacion_id`) REFERENCES `cotizacionexpress_cotizacion` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -495,7 +492,6 @@ CREATE TABLE `cotizacionexpress_cotizacionmueble` (
 
 LOCK TABLES `cotizacionexpress_cotizacionmueble` WRITE;
 /*!40000 ALTER TABLE `cotizacionexpress_cotizacionmueble` DISABLE KEYS */;
-INSERT INTO `cotizacionexpress_cotizacionmueble` VALUES (1,'Biblioteca','',40.00,30.00,150.00,1,2,'activo',1,2,'40 cms'),(2,'Despensa alto > 90','',120.00,40.00,180.00,1,10,'activo',1,10,'120 cms'),(3,'Heladera 2p','',160.00,75.00,95.00,1,12,'activo',1,12,'Pequeña < 160'),(4,'Vajillero bajo < 90','',210.00,50.00,90.00,1,10,'activo',1,10,'210 cms');
 /*!40000 ALTER TABLE `cotizacionexpress_cotizacionmueble` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -546,7 +542,7 @@ CREATE TABLE `django_content_type` (
   `model` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `django_content_type_app_label_e70dc98_uniq` (`app_label`,`model`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -555,7 +551,7 @@ CREATE TABLE `django_content_type` (
 
 LOCK TABLES `django_content_type` WRITE;
 /*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
-INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(3,'auth','group'),(2,'auth','permission'),(4,'auth','user'),(14,'bulto','bulto'),(7,'cliente','cliente'),(8,'contenedor','contenedor'),(19,'contenedor','detallecontenedor'),(5,'contenttypes','contenttype'),(13,'corsheaders','corsmodel'),(9,'cotizacionexpress','cotizacion'),(11,'cotizacionexpress','cotizacioncontenedor'),(17,'cotizacionexpress','cotizacionmaterial'),(10,'cotizacionexpress','cotizacionmueble'),(18,'material','material'),(12,'mueble','mueble'),(16,'mueble','tipomueble'),(6,'sessions','session');
+INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(3,'auth','group'),(2,'auth','permission'),(4,'auth','user'),(14,'bulto','bulto'),(7,'cliente','cliente'),(8,'contenedor','contenedor'),(19,'contenedor','detallecontenedor'),(5,'contenttypes','contenttype'),(13,'corsheaders','corsmodel'),(9,'cotizacionexpress','cotizacion'),(11,'cotizacionexpress','cotizacioncontenedor'),(17,'cotizacionexpress','cotizacionmaterial'),(10,'cotizacionexpress','cotizacionmueble'),(18,'material','material'),(21,'mueble','especificacionmueble'),(12,'mueble','mueble'),(16,'mueble','tipomueble'),(6,'sessions','session');
 /*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -572,7 +568,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -581,7 +577,7 @@ CREATE TABLE `django_migrations` (
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2016-05-17 19:30:20.592936'),(2,'auth','0001_initial','2016-05-17 19:30:30.844185'),(3,'admin','0001_initial','2016-05-17 19:30:34.181412'),(4,'contenttypes','0002_remove_content_type_name','2016-05-17 19:30:35.881370'),(5,'auth','0002_alter_permission_name_max_length','2016-05-17 19:30:36.823965'),(6,'auth','0003_alter_user_email_max_length','2016-05-17 19:30:37.969229'),(7,'auth','0004_alter_user_username_opts','2016-05-17 19:30:38.058011'),(8,'auth','0005_alter_user_last_login_null','2016-05-17 19:30:38.804492'),(9,'auth','0006_require_contenttypes_0002','2016-05-17 19:30:38.881275'),(10,'cliente','0001_initial','2016-05-17 19:30:39.397887'),(12,'cotizacionexpress','0001_initial','2016-05-17 19:30:44.406362'),(13,'sessions','0001_initial','2016-05-17 19:30:45.487782'),(14,'mueble','0001_initial','2016-05-17 20:19:10.995888'),(16,'cotizacionexpress','0002_auto_20160518_1349','2016-05-18 18:19:14.438926'),(17,'bulto','0001_initial','2016-05-19 13:39:42.316143'),(18,'cotizacionexpress','0003_auto_20160523_1149','2016-05-23 16:19:47.539279'),(19,'mueble','0002_auto_20160526_1112','2016-05-26 15:42:31.662729'),(20,'mueble','0002_auto_20160526_1115','2016-05-26 15:48:58.066846'),(21,'mueble','0003_mueble_tipo_mueble','2016-05-26 15:54:45.758178'),(22,'mueble','0004_auto_20160526_1405','2016-05-26 18:35:39.186240'),(23,'cotizacionexpress','0004_auto_20160527_0901','2016-05-27 13:34:41.349359'),(24,'cotizacionexpress','0005_cotizacionmueble_especificacion','2016-05-27 15:17:01.184761'),(25,'material','0001_initial','2016-05-27 15:17:01.800197'),(26,'cotizacionexpress','0006_auto_20160603_1210','2016-06-03 16:40:57.388853'),(27,'cotizacionexpress','0007_auto_20160606_0928','2016-06-06 13:58:29.035575'),(28,'contenedor','0001_initial','2016-06-14 14:32:41.396877'),(29,'material','0002_material_contenedor','2016-06-14 19:26:22.140304'),(30,'cotizacionexpress','0008_auto_20160615_1315','2016-06-15 17:45:19.226449');
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2016-05-17 19:30:20.592936'),(2,'auth','0001_initial','2016-05-17 19:30:30.844185'),(3,'admin','0001_initial','2016-05-17 19:30:34.181412'),(4,'contenttypes','0002_remove_content_type_name','2016-05-17 19:30:35.881370'),(5,'auth','0002_alter_permission_name_max_length','2016-05-17 19:30:36.823965'),(6,'auth','0003_alter_user_email_max_length','2016-05-17 19:30:37.969229'),(7,'auth','0004_alter_user_username_opts','2016-05-17 19:30:38.058011'),(8,'auth','0005_alter_user_last_login_null','2016-05-17 19:30:38.804492'),(9,'auth','0006_require_contenttypes_0002','2016-05-17 19:30:38.881275'),(10,'cliente','0001_initial','2016-05-17 19:30:39.397887'),(12,'cotizacionexpress','0001_initial','2016-05-17 19:30:44.406362'),(13,'sessions','0001_initial','2016-05-17 19:30:45.487782'),(14,'mueble','0001_initial','2016-05-17 20:19:10.995888'),(16,'cotizacionexpress','0002_auto_20160518_1349','2016-05-18 18:19:14.438926'),(17,'bulto','0001_initial','2016-05-19 13:39:42.316143'),(18,'cotizacionexpress','0003_auto_20160523_1149','2016-05-23 16:19:47.539279'),(19,'mueble','0002_auto_20160526_1112','2016-05-26 15:42:31.662729'),(20,'mueble','0002_auto_20160526_1115','2016-05-26 15:48:58.066846'),(21,'mueble','0003_mueble_tipo_mueble','2016-05-26 15:54:45.758178'),(22,'mueble','0004_auto_20160526_1405','2016-05-26 18:35:39.186240'),(23,'cotizacionexpress','0004_auto_20160527_0901','2016-05-27 13:34:41.349359'),(24,'cotizacionexpress','0005_cotizacionmueble_especificacion','2016-05-27 15:17:01.184761'),(25,'material','0001_initial','2016-05-27 15:17:01.800197'),(26,'cotizacionexpress','0006_auto_20160603_1210','2016-06-03 16:40:57.388853'),(27,'cotizacionexpress','0007_auto_20160606_0928','2016-06-06 13:58:29.035575'),(28,'contenedor','0001_initial','2016-06-14 14:32:41.396877'),(29,'material','0002_material_contenedor','2016-06-14 19:26:22.140304'),(30,'cotizacionexpress','0008_auto_20160615_1315','2016-06-15 17:45:19.226449'),(31,'mueble','0005_auto_20160615_1516','2016-06-15 19:47:15.434943'),(32,'mueble','0006_auto_20160615_1544','2016-06-15 20:15:11.509822');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -640,6 +636,37 @@ INSERT INTO `material_material` VALUES (1,'Cajas Nuevas',40.00,1),(2,'Cajas Reci
 UNLOCK TABLES;
 
 --
+-- Table structure for table `mueble_especificacionmueble`
+--
+
+DROP TABLE IF EXISTS `mueble_especificacionmueble`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mueble_especificacionmueble` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `especificacion` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `ancho` decimal(7,2) NOT NULL,
+  `largo` decimal(7,2) NOT NULL,
+  `alto` decimal(7,2) NOT NULL,
+  `punto` int(11) NOT NULL,
+  `mueble_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mueble_especificacionmueb_mueble_id_2a09b070_fk_mueble_mueble_id` (`mueble_id`),
+  CONSTRAINT `mueble_especificacionmueb_mueble_id_2a09b070_fk_mueble_mueble_id` FOREIGN KEY (`mueble_id`) REFERENCES `mueble_mueble` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mueble_especificacionmueble`
+--
+
+LOCK TABLES `mueble_especificacionmueble` WRITE;
+/*!40000 ALTER TABLE `mueble_especificacionmueble` DISABLE KEYS */;
+INSERT INTO `mueble_especificacionmueble` VALUES (1,'40 cms',40.00,30.00,150.00,2,1),(2,'60 cms',60.00,50.00,180.00,6,1),(3,'90 cms',90.00,50.00,180.00,8,1),(4,'120 cms',120.00,50.00,180.00,10,1),(5,'140 cms',120.00,50.00,180.00,12,1),(6,'1 plaza',80.00,200.00,70.00,13,2),(7,'1 1/2 plazas',100.00,200.00,70.00,15,2),(8,'2 plazas',140.00,200.00,70.00,23,2),(9,'2 1/2 plazas',220.00,160.00,80.00,30,2),(10,'Litera',100.00,180.00,140.00,25,2),(11,'90 cms',90.00,90.00,50.00,4,3),(12,'120 cms',120.00,90.00,50.00,5,3),(13,'150 cms',150.00,90.00,50.00,7,3),(14,'180 cms',180.00,90.00,50.00,8,3),(15,'210 cms',210.00,90.00,50.00,10,3),(16,'40 cms',40.00,30.00,90.00,1,4),(17,'60 cms',60.00,40.00,90.00,3,4),(18,'90 cms',90.00,50.00,90.00,4,4),(19,'120 cms',120.00,40.00,90.00,5,4),(20,'140 cms',140.00,40.00,90.00,6,4),(21,'40 cms',40.00,30.00,1800.00,2,5),(22,'60 cms',60.00,40.00,180.00,6,5),(23,'90 cms',90.00,40.00,180.00,8,5),(24,'120 cms',120.00,40.00,180.00,10,5),(25,'140 cms',140.00,50.00,90.00,12,5),(26,'40 cms',40.00,30.00,60.00,1,6),(27,'90 cms',90.00,30.00,60.00,2,6),(28,'120 cms',120.00,50.00,60.00,4,6),(29,'90 cms',90.00,75.00,55.00,4,7),(30,'120 cms',120.00,75.00,55.00,5,7),(31,'150 cms',150.00,75.00,60.00,7,7),(32,'180 cms',180.00,75.00,60.00,8,7),(33,'210 cms',210.00,75.00,60.00,10,7),(34,'90 cms',90.00,150.00,55.00,8,8),(35,'120 cms',120.00,150.00,55.00,10,8),(36,'150 cms',150.00,150.00,60.00,14,8),(37,'180 cms',180.00,150.00,60.00,16,8),(38,'210 cms',210.00,150.00,60.00,20,8),(39,'Pequeña < 160',160.00,65.00,70.00,7,9),(40,'Grande > 160',200.00,65.00,70.00,9,9),(41,'Pequeña < 160',160.00,75.00,95.00,12,10),(42,'Grande > 160',200.00,75.00,95.00,15,10),(43,'Pequeño →50←',50.00,40.00,40.00,1,11),(44,'Grande ←50→',70.00,50.00,50.00,2,11),(45,'50 cms',50.00,70.00,85.00,3,12),(46,'60 cms',60.00,70.00,85.00,4,12),(47,'90 cms',90.00,70.00,85.00,6,12),(48,'40cms',40.00,40.00,60.00,1,13),(49,'50cms',50.00,45.00,65.00,2,13),(50,'60cms',60.00,60.00,75.00,3,13),(51,'70cms',70.00,65.00,80.00,4,13),(52,'90cms',90.00,65.00,80.00,5,14),(53,'80cms',80.00,85.00,80.00,6,15),(54,'120cms',120.00,85.00,80.00,8,15),(55,'160 cms',160.00,85.00,90.00,12,15),(56,'200 cms',200.00,85.00,90.00,16,15),(57,'240 cms',240.00,85.00,120.00,24,15),(58,'60 cms',60.00,35.00,85.00,2,16),(59,'80 cms',80.00,40.00,85.00,3,16),(60,'100 cms',100.00,45.00,85.00,4,16),(61,'120 cms',120.00,50.00,85.00,5,16),(62,'140 cms',140.00,50.00,85.00,6,16),(63,'50 cms',50.00,40.00,50.00,1,17),(64,'70 cms',70.00,70.00,50.00,3,17),(65,'90 cms',90.00,90.00,55.00,5,17),(66,'120 cms',120.00,120.00,55.00,8,17),(67,'140 cms',140.00,140.00,55.00,10,17),(68,'120 cms',120.00,45.00,90.00,5,18),(69,'150 cms',150.00,50.00,90.00,7,18),(70,'180 cms',180.00,50.00,90.00,8,18),(71,'210 cms',210.00,55.00,90.00,10,18),(72,'240 cms',240.00,55.00,90.00,12,18),(73,'120 cms',120.00,50.00,160.00,10,19),(74,'150 cms',150.00,50.00,180.00,14,19),(75,'180 cms',180.00,50.00,180.00,16,19),(76,'210 cms',210.00,55.00,180.00,20,19),(77,'240 cms',240.00,55.00,180.00,24,19),(78,'1 silla',60.00,60.00,80.00,3,20),(79,'4 sillas',110.00,110.00,80.00,10,20),(80,'6 sillas',150.00,110.00,80.00,14,20),(81,'8 sillas',150.00,160.00,80.00,20,20),(82,'10 sillas',180.00,160.00,80.00,24,20),(83,'50 cms',50.00,70.00,80.00,3,21),(84,'70 cms',70.00,70.00,80.00,4,21),(85,'90 cms',90.00,80.00,80.00,6,21),(86,'120 cms',120.00,80.00,80.00,8,21),(87,'160 cms',160.00,80.00,90.00,12,21),(88,'1 plaza',90.00,80.00,90.00,7,22),(89,'2 plazas',160.00,80.00,90.00,12,22),(90,'3 plazas',210.00,80.00,90.00,15,22),(91,'4 plazas',260.00,80.00,90.00,20,22),(92,'en L',350.00,90.00,110.00,35,22),(93,'22\" - 46\" pulgadas',85.00,60.00,20.00,1,23),(94,'50\" - 52\" pulgadas',110.00,60.00,30.00,2,23),(95,'60\" - 65\" pulgadas',140.00,80.00,35.00,4,23),(96,'120 cms',120.00,45.00,90.00,5,24),(97,'150 cms',150.00,50.00,90.00,7,24),(98,'180 cms',180.00,50.00,90.00,8,24),(99,'210 cms',210.00,50.00,90.00,10,24),(100,'240 cms',240.00,55.00,90.00,12,24),(101,'120 cms',120.00,45.00,180.00,10,25),(102,'150 cms',150.00,50.00,180.00,14,25),(103,'180 cms',180.00,50.00,180.00,16,25),(104,'210 cms',210.00,50.00,180.00,20,25),(105,'240 cms',240.00,55.00,180.00,24,25);
+/*!40000 ALTER TABLE `mueble_especificacionmueble` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `mueble_mueble`
 --
 
@@ -649,16 +676,11 @@ DROP TABLE IF EXISTS `mueble_mueble`;
 CREATE TABLE `mueble_mueble` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `ancho` decimal(7,2) NOT NULL,
-  `largo` decimal(7,2) NOT NULL,
-  `alto` decimal(7,2) NOT NULL,
-  `punto` int(11) NOT NULL,
   `tipo_mueble_id` int(11) NOT NULL,
-  `especificacion` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `mueble_mueble_3cda6187` (`tipo_mueble_id`),
   CONSTRAINT `mueble_mueble_tipo_mueble_id_2694c00b_fk_mueble_tipomueble_id` FOREIGN KEY (`tipo_mueble_id`) REFERENCES `mueble_tipomueble` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -667,7 +689,7 @@ CREATE TABLE `mueble_mueble` (
 
 LOCK TABLES `mueble_mueble` WRITE;
 /*!40000 ALTER TABLE `mueble_mueble` DISABLE KEYS */;
-INSERT INTO `mueble_mueble` VALUES (1,'Biblioteca',40.00,30.00,150.00,2,11,'40 cms'),(2,'Biblioteca',60.00,50.00,180.00,6,11,'60 cms'),(3,'Biblioteca',90.00,50.00,180.00,8,11,'90 cms'),(4,'Biblioteca',120.00,50.00,180.00,10,11,'120 cms'),(5,'Biblioteca',120.00,50.00,180.00,12,11,'140 cms'),(6,'Cama',80.00,200.00,70.00,13,3,'1 plaza'),(7,'Cama',100.00,200.00,70.00,15,3,'1 1/2 plazas'),(8,'Cama',140.00,200.00,70.00,23,3,'2 plazas'),(9,'Cama',220.00,160.00,80.00,30,3,'2 1/2 plazas'),(10,'Cama',100.00,180.00,140.00,25,3,'Litera'),(11,'Cómoda',90.00,90.00,50.00,4,11,'90 cms'),(12,'Cómoda',120.00,90.00,50.00,5,11,'120 cms'),(13,'Cómoda',150.00,90.00,50.00,7,11,'150 cms'),(14,'Cómoda',180.00,90.00,50.00,8,11,'180 cms'),(15,'Cómoda',210.00,90.00,50.00,10,11,'210 cms'),(16,'Despensa bajo < 90',40.00,30.00,90.00,1,11,'40 cms'),(17,'Despensa bajo < 90',60.00,40.00,90.00,3,11,'60 cms'),(18,'Despensa bajo < 90',90.00,50.00,90.00,4,11,'90 cms'),(19,'Despensa bajo < 90',120.00,40.00,90.00,5,11,'120 cms'),(20,'Despensa bajo < 90',140.00,40.00,90.00,6,11,'140 cms'),(21,'Despensa alto > 90',40.00,30.00,1800.00,2,11,'40 cms'),(22,'Despensa alto > 90',60.00,40.00,180.00,6,1,'60 cms'),(23,'Despensa alto > 90',90.00,40.00,180.00,8,11,'90 cms'),(24,'Despensa alto > 90',120.00,40.00,180.00,10,11,'120 cms'),(25,'Despensa alto > 90',140.00,50.00,90.00,12,11,'140 cms'),(26,'Equipo de música',40.00,30.00,60.00,1,16,'40 cms'),(27,'Equipo de música',90.00,30.00,60.00,2,16,'90 cms'),(28,'Equipo de música',120.00,50.00,60.00,4,16,'120 cms'),(29,'Escritorio bajo < 90',90.00,75.00,55.00,4,1,'90 cms'),(30,'Escritorio bajo < 90',120.00,75.00,55.00,5,1,'120 cms'),(31,'Escritorio bajo < 90',150.00,75.00,60.00,7,1,'150 cms'),(32,'Escritorio bajo < 90',180.00,75.00,60.00,8,1,'180 cms'),(33,'Escritorio bajo < 90',210.00,75.00,60.00,10,1,'210 cms'),(34,'Escritorio alto > 90',90.00,150.00,55.00,8,1,'90 cms'),(35,'Escritorio alto > 90',120.00,150.00,55.00,10,1,'120 cms'),(36,'Escritorio alto > 90',150.00,150.00,60.00,14,1,'150 cms'),(37,'Escritorio alto > 90',180.00,150.00,60.00,16,1,'180 cms'),(38,'Escritorio alto > 90',210.00,150.00,60.00,20,1,'210 cms'),(39,'Heladera 1p',160.00,65.00,70.00,7,6,'Pequeña < 160'),(40,'Heladera 1p',200.00,65.00,70.00,9,6,'Grande > 160'),(41,'Heladera 2p',160.00,75.00,95.00,12,6,'Pequeña < 160'),(42,'Heladera 2p',200.00,75.00,95.00,15,6,'Grande > 160'),(43,'Microondas / Horno eléctrico',50.00,40.00,40.00,1,6,'Pequeño →50←'),(44,'Microondas / Horno eléctrico',70.00,50.00,50.00,2,6,'Grande ←50→'),(45,'Lavarropas / Lavavajillas / Secadora',50.00,70.00,85.00,3,6,'50 cms'),(46,'Lavarropas / Lavavajillas / Secadora',60.00,70.00,85.00,4,6,'60 cms'),(47,'Lavarropas / Lavavajillas / Secadora',90.00,70.00,85.00,6,6,'90 cms'),(48,'Mesa de apoyo / Mesa de luz',40.00,40.00,60.00,1,1,'40cms'),(49,'Mesa de apoyo / Mesa de luz',50.00,45.00,65.00,2,1,'50cms'),(50,'Mesa de apoyo / Mesa de luz',60.00,60.00,75.00,3,1,'60cms'),(51,'Mesa de apoyo / Mesa de luz',70.00,65.00,80.00,4,1,'70cms'),(52,'Mesa de apoyo',90.00,65.00,80.00,5,1,'90cms'),(53,'Mesa de comedor',80.00,85.00,80.00,6,1,'80cms'),(54,'Mesa de comedor',120.00,85.00,80.00,8,1,'120cms'),(55,'Mesa de comedor',160.00,85.00,90.00,12,1,'160 cms'),(56,'Mesa de comedor',200.00,85.00,90.00,16,1,'200 cms'),(57,'Mesa de comedor',240.00,85.00,120.00,24,1,'240 cms'),(58,'Mesa desayunador',60.00,35.00,85.00,2,1,'60 cms'),(59,'Mesa desayunador',80.00,40.00,85.00,3,1,'80 cms'),(60,'Mesa desayunador',100.00,45.00,85.00,4,1,'100 cms'),(61,'Mesa desayunador',120.00,50.00,85.00,5,1,'120 cms'),(62,'Mesa desayunador',140.00,50.00,85.00,6,1,'140 cms'),(63,'Mesa ratona',50.00,40.00,50.00,1,1,'50 cms'),(64,'Mesa ratona',70.00,70.00,50.00,3,1,'70 cms'),(65,'Mesa ratona',90.00,90.00,55.00,5,1,'90 cms'),(66,'Mesa ratona',120.00,120.00,55.00,8,1,'120 cms'),(67,'Mesa ratona',140.00,140.00,55.00,10,1,'140 cms'),(68,'Mueble de TV bajo < 90',120.00,45.00,90.00,5,11,'120 cms'),(69,'Mueble de TV bajo < 90',150.00,50.00,90.00,7,11,'150 cms'),(70,'Mueble de TV bajo < 90',180.00,50.00,90.00,8,11,'180 cms'),(71,'Mueble de TV bajo < 90',210.00,55.00,90.00,10,11,'210 cms'),(72,'Mueble de TV bajo < 90',240.00,55.00,90.00,12,11,'240 cms'),(73,'Mueble de TV alto > 90',120.00,50.00,160.00,10,11,'120 cms'),(74,'Mueble de TV alto > 90',150.00,50.00,180.00,14,11,'150 cms'),(75,'Mueble de TV alto > 90',180.00,50.00,180.00,16,11,'180 cms'),(76,'Mueble de TV alto > 90',210.00,55.00,180.00,20,6,'210 cms'),(77,'Mueble de TV alto > 90',240.00,55.00,180.00,24,11,'240 cms'),(78,'Sillas de comedor',60.00,60.00,80.00,3,12,'1 silla'),(79,'Sillas de comedor',110.00,110.00,80.00,10,12,'4 sillas'),(80,'Sillas de comedor',150.00,110.00,80.00,14,12,'6 sillas'),(81,'Sillas de comedor',150.00,160.00,80.00,20,12,'8 sillas'),(82,'Sillas de comedor',180.00,160.00,80.00,24,12,'10 sillas'),(83,'Sillón',50.00,70.00,80.00,3,12,'50 cms'),(84,'Sillón',70.00,70.00,80.00,4,12,'70 cms'),(85,'Sillón',90.00,80.00,80.00,6,12,'90 cms'),(86,'Sillón',120.00,80.00,80.00,8,12,'120 cms'),(87,'Sillón',160.00,80.00,90.00,12,12,'160 cms'),(88,'Sofá',90.00,80.00,90.00,7,5,'1 plaza'),(89,'Sofá',160.00,80.00,90.00,12,5,'2 plazas'),(90,'Sofá',210.00,80.00,90.00,15,5,'3 plazas'),(91,'Sofá',260.00,80.00,90.00,20,5,'4 plazas'),(92,'Sofá',350.00,90.00,110.00,35,5,'en L'),(93,'TV',85.00,60.00,20.00,1,16,'22\" - 46\" pulgadas'),(94,'TV',110.00,60.00,30.00,2,16,'50\" - 52\" pulgadas'),(95,'TV',140.00,80.00,35.00,4,16,'60\" - 65\" pulgadas'),(96,'Vajillero bajo < 90',120.00,45.00,90.00,5,11,'120 cms'),(97,'Vajillero bajo < 90',150.00,50.00,90.00,7,11,'150 cms'),(98,'Vajillero bajo < 90',180.00,50.00,90.00,8,11,'180 cms'),(99,'Vajillero bajo < 90',210.00,50.00,90.00,10,11,'210 cms'),(100,'Vajillero bajo < 90',240.00,55.00,90.00,12,11,'240 cms'),(101,'Vajillero alto > 90',120.00,45.00,180.00,10,11,'120 cms'),(102,'Vajillero alto > 90',150.00,50.00,180.00,14,11,'150 cms'),(103,'Vajillero alto > 90',180.00,50.00,180.00,16,11,'180 cms'),(104,'Vajillero alto > 90',210.00,50.00,180.00,20,11,'210 cms'),(105,'Vajillero alto > 90',240.00,55.00,180.00,24,11,'240 cms');
+INSERT INTO `mueble_mueble` VALUES (1,'Biblioteca',11),(2,'Cama',3),(3,'Cómoda',11),(4,'Despensa bajo < 90',11),(5,'Despensa alto > 90',11),(6,'Equipo de música',16),(7,'Escritorio bajo < 90',1),(8,'Escritorio alto > 90',1),(9,'Heladera 1p',6),(10,'Heladera 2p',6),(11,'Microondas / Horno eléctrico',6),(12,'Lavarropas / Lavavajillas / Secadora',6),(13,'Mesa de apoyo / Mesa de luz',1),(14,'Mesa de apoyo',1),(15,'Mesa de comedor',1),(16,'Mesa desayunador',1),(17,'Mesa ratona',1),(18,'Mueble de TV bajo < 90',11),(19,'Mueble de TV alto > 90',11),(20,'Sillas de comedor',12),(21,'Sillón',12),(22,'Sofá',5),(23,'TV',16),(24,'Vajillero bajo < 90',11),(25,'Vajillero alto > 90',11);
 /*!40000 ALTER TABLE `mueble_mueble` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -709,4 +731,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-15 13:17:52
+-- Dump completed on 2016-06-15 15:48:45
