@@ -138,7 +138,7 @@ class CotizacionMueble(models.Model):
 
     cotizacion = models.ForeignKey(Cotizacion)
     mueble = models.CharField(max_length=100)
-    especificacion = models.CharField(max_length=100)
+    especificacion = models.CharField(max_length=100, blank=True)
     descripcion = models.TextField(blank=True)
     ancho = models.DecimalField(max_digits=7, decimal_places=2)
     largo = models.DecimalField(max_digits=7, decimal_places=2)
