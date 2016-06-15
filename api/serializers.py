@@ -53,13 +53,13 @@ class MuebleSerializer(serializers.HyperlinkedModelSerializer):
 class MuebleDescripcionSerializer(serializers.HyperlinkedModelSerializer):
     tipo_mueble = serializers.PrimaryKeyRelatedField(many=False,
                                                      queryset=TipoMueble.objects.all())
-    especificacionmubles = MuebleSerializer(many=True,
-                                            read_only=True,
-                                            source='especificacionmuble_set')
+    especificacionmuebles = MuebleSerializer(many=True,
+                                             read_only=True,
+                                             source='especificacionmueble_set')
 
     class Meta:
         model = Mueble
-        fields = ('id', 'descripcion', 'tipo_mueble', 'especificacionmubles')
+        fields = ('id', 'descripcion', 'tipo_mueble', 'especificacionmuebles')
 
 
 class ContenedorSerializer(serializers.HyperlinkedModelSerializer):
