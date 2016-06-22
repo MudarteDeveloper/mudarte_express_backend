@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cliente.models import Cliente
+from mueble.models import Mueble, TipoMueble, EspecificacionMueble
+from contenedor.models import Contenedor
+from material.models import Material
 
 
 ESTADO_CHOICES = (
@@ -137,6 +140,9 @@ class CotizacionMueble(models.Model):
         super(CotizacionMueble, self).__init__(*args, **kwargs)
 
     cotizacion = models.ForeignKey(Cotizacion)
+    muebleid = models.ForeignKey(Mueble, null=True, blank=True)
+    tipo_muebleid = models.ForeignKey(TipoMueble, null=True, blank=True)
+    especificacionid = models.ForeignKey(EspecificacionMueble, null=True, blank=True)
     mueble = models.CharField(max_length=100)
     especificacion = models.CharField(max_length=100, blank=True)
     descripcion = models.TextField(blank=True)
@@ -163,6 +169,7 @@ class CotizacionContenedor(models.Model):
         super(CotizacionContenedor, self).__init__(*args, **kwargs)
 
     cotizacion = models.ForeignKey(Cotizacion)
+    contenedor = models.ForeignKey(Contenedor, on_delete=models.PROTECT)
     descripcion = models.CharField(max_length=100)
     cantidad = models.IntegerField()
     punto = models.IntegerField()
@@ -183,6 +190,7 @@ class CotizacionMaterial(models.Model):
         super(CotizacionMaterial, self).__init__(*args, **kwargs)
 
     cotizacion = models.ForeignKey(Cotizacion)
+    materialid = models.ForeignKey(Material, on_delete=models.PROTECT)
     material = models.CharField(max_length=100)
     cantidad = models.IntegerField()
     precio_unitario = models.DecimalField(max_digits=9, decimal_places=2)

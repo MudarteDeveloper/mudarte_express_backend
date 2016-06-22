@@ -8,7 +8,8 @@ from api.views import UserViewSet, ClienteViewSet, \
     MuebleViewSet, ContenedorViewSet, CotizacionViewSet, \
     CotizacionMuebleViewSet, CotizacionContenedorViewSet, \
     ContenedorDescripcionViewSet, BultoViewSet, TipoMuebleViewSet, \
-    MuebleDescripcionViewSet, MaterialViewSet, CotizacionMaterialViewSet
+    MuebleDescripcionViewSet, MaterialViewSet, CotizacionMaterialViewSet, \
+    AuthView
 
 
 from rest_framework import routers
@@ -32,4 +33,7 @@ router.register(r'v1/materialcotizacion', CotizacionMaterialViewSet)
 
 urlpatterns = patterns('',
                        url(r'^', include(router.urls)),
+                       url(r'^auth/$',
+                           AuthView,
+                           name='authenticate')
                        )

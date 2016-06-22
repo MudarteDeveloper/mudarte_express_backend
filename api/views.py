@@ -13,6 +13,16 @@ from api.serializers import UserSerializer, ClienteSerializer, \
     ContenedorDescripcionSerializer, BultoSerializer, \
     TipoMuebleSerializer, MuebleDescripcionSerializer, \
     MaterialSerializer, CotizacionMaterialSerializer
+from api import authentication
+from rest_framework.views import APIView
+
+
+class AuthView(APIView):
+    authentication_classes = (authentication.QuietBasicAuthentication,)
+    serializer_class = UserSerializer
+
+    def post(self, request, *args, **kwargs):
+        return Response(self.serializer_class(request.user).data)
 
 
 # ViewSets define the view behavior.

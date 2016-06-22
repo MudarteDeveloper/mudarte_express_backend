@@ -104,34 +104,45 @@ class MaterialSerializer(serializers.HyperlinkedModelSerializer):
 class CotizacionMuebleSerializer(serializers.HyperlinkedModelSerializer):
     cotizacion = serializers.PrimaryKeyRelatedField(many=False,
                                                     queryset=Cotizacion.objects.all())
+    muebleid = serializers.PrimaryKeyRelatedField(many=False,
+                                                  queryset=Mueble.objects.all())
+    tipo_muebleid = serializers.PrimaryKeyRelatedField(many=False,
+                                                       queryset=TipoMueble.objects.all())
+    especificacionid = serializers.PrimaryKeyRelatedField(many=False,
+                                                          queryset=EspecificacionMueble.objects.all())
 
     class Meta:
         model = CotizacionMueble
         fields = ('id', 'cotizacion', 'mueble',
                   'especificacion', 'descripcion',
                   'ancho', 'largo', 'alto', 'cantidad', 'punto',
-                  'total_punto', 'estado')
+                  'total_punto', 'estado', 'muebleid',
+                  'tipo_muebleid', 'especificacionid')
 
 
 class CotizacionContenedorSerializer(serializers.HyperlinkedModelSerializer):
     cotizacion = serializers.PrimaryKeyRelatedField(many=False,
                                                     queryset=Cotizacion.objects.all())
+    contenedor = serializers.PrimaryKeyRelatedField(many=False,
+                                                    queryset=Contenedor.objects.all())
 
     class Meta:
         model = CotizacionContenedor
         fields = ('id', 'cotizacion', 'descripcion',
-                  'cantidad', 'punto', 'estado')
+                  'cantidad', 'punto', 'estado', 'contenedor')
 
 
 class CotizacionMaterialSerializer(serializers.HyperlinkedModelSerializer):
     cotizacion = serializers.PrimaryKeyRelatedField(many=False,
                                                     queryset=Cotizacion.objects.all())
+    materialid = serializers.PrimaryKeyRelatedField(many=False,
+                                                    queryset=Material.objects.all())
 
     class Meta:
         model = CotizacionMaterial
         fields = ('id', 'cotizacion', 'material',
                   'cantidad', 'precio_unitario',
-                  'total', 'estado')
+                  'total', 'estado', 'materialid')
 
 
 class CotizacionSerializer(serializers.HyperlinkedModelSerializer):
