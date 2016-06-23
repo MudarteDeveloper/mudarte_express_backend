@@ -105,10 +105,13 @@ class CotizacionMuebleSerializer(serializers.HyperlinkedModelSerializer):
     cotizacion = serializers.PrimaryKeyRelatedField(many=False,
                                                     queryset=Cotizacion.objects.all())
     muebleid = serializers.PrimaryKeyRelatedField(many=False,
+                                                  allow_null=True,
                                                   queryset=Mueble.objects.all())
     tipo_muebleid = serializers.PrimaryKeyRelatedField(many=False,
+                                                       allow_null=True,
                                                        queryset=TipoMueble.objects.all())
     especificacionid = serializers.PrimaryKeyRelatedField(many=False,
+                                                          allow_null=True,
                                                           queryset=EspecificacionMueble.objects.all())
 
     class Meta:
