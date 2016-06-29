@@ -155,6 +155,7 @@ class CotizacionSerializer(serializers.HyperlinkedModelSerializer):
                                                    source='cliente')
     cotizador = UserSerializer2(read_only=True)
     cotizadorId = serializers.PrimaryKeyRelatedField(write_only=True,
+                                                     allow_null=True,
                                                      queryset=User.objects.all(),
                                                      source='cotizador')
     cotizacionmuebles = CotizacionMuebleSerializer(many=True,
